@@ -41,6 +41,10 @@ app.get("/", (req, res) => {
     Apis: {
       Products: "https://personalcarebackend.onrender.com/products",
       Categories: "https://personalcarebackend.onrender.com/categories",
+      ProductsByCategoryId:
+        "https://personalcarebackend.onrender.com/category/1",
+      ProductsDetails:
+        "https://personalcarebackend.onrender.com/products/67ea1b94f447754573c3be77",
     },
   });
 });
