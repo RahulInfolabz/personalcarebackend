@@ -3,7 +3,7 @@ const connectDb = require("../../../Db/connectDb");
 async function fetchAllProducts(req, res) {
   try {
     const db = await connectDb();
-    const collection = db.collection("Products");
+    const collection = db.collection("products");
 
     const products = await collection.find().toArray();
 
