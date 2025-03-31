@@ -32,7 +32,7 @@ app.post("/insertProducts", insertProducts);
 app.get("/", (req, res) => {
   res.status(200).json({
     success: true,
-    message: "Data retrieved successfully.",
+    message: "Server Connected.",
     Apis: {
       Products: "https://personalcarebackend.onrender.com/products",
       Categories: "https://personalcarebackend.onrender.com/categories",
