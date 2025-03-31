@@ -28,6 +28,17 @@ app.post("/insertCategories", insertCategories);
 app.post("/insertProducts", insertProducts);
 
 // user
+
+app.get("/", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Data retrieved successfully.",
+    Apis: {
+      Products: "https://personalcarebackend.onrender.com/products",
+      Categories: "https://personalcarebackend.onrender.com/categories",
+    },
+  });
+});
 app.get("/products", fetchAllProducts);
 app.get("/categories", fetchAllCategories);
 
