@@ -5,6 +5,10 @@ const insertProducts = require("./Apis/Admin/Products/insertProducts.js");
 const insertCategories = require("./Apis/Admin/Categories/insertcategories.js");
 const fetchAllProducts = require("./Apis/User/Products/fetchAllProducts.js");
 const fetchAllCategories = require("./Apis/User/Categories/fetchAllCategories.js");
+const insertCategory = require("./Apis/Admin/Categories/insertCategory.js");
+const insertProduct = require("./Apis/Admin/Products/insertProduct.js");
+const fetchProductsByCategory = require("./Apis/User/Products/fetchProductsByCategory.js");
+const fetchProductById = require("./Apis/User/Products/fetchProductsById.js");
 require("dotenv").config();
 
 const app = express();
@@ -26,9 +30,10 @@ connectDb();
 // admin
 app.post("/insertCategories", insertCategories);
 app.post("/insertProducts", insertProducts);
+app.post("/insertProduct", insertProduct);
+app.post("/insertCategory", insertCategory);
 
 // user
-
 app.get("/", (req, res) => {
   res.status(200).json({
     success: true,
@@ -41,6 +46,8 @@ app.get("/", (req, res) => {
 });
 app.get("/products", fetchAllProducts);
 app.get("/categories", fetchAllCategories);
+app.get("/category/:category_id", fetchProductsByCategory);
+app.get("/products/:product_id", fetchProductById);
 
 // Starting the Express server
 app.listen(PORT, () => console.log(`Server started on PORT ${PORT}!`));
