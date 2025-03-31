@@ -7,7 +7,7 @@ const fetchAllProducts = require("./Apis/User/Products/fetchAllProducts.js");
 const fetchAllCategories = require("./Apis/User/Categories/fetchAllCategories.js");
 const insertCategory = require("./Apis/Admin/Categories/insertCategory.js");
 const insertProduct = require("./Apis/Admin/Products/insertProduct.js");
-const fetchProductsByCategory = require("./Apis/User/Products/fetchProductsByCategory.js");
+const fetchProductsByCategory = require("./Apis/User/Categories/fetchProductsByCategory.js");
 const fetchProductById = require("./Apis/User/Products/fetchProductsById.js");
 require("dotenv").config();
 
