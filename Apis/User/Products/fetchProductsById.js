@@ -5,7 +5,7 @@ async function fetchProductById(req, res) {
   try {
     // Get the _id from the URL params
     const { product_id } = req.params;
-    
+
     // Connect to the database
     const db = await connectDb();
 
