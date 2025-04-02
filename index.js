@@ -9,6 +9,8 @@ const insertCategory = require("./Apis/Admin/Categories/insertCategory.js");
 const insertProduct = require("./Apis/Admin/Products/insertProduct.js");
 const fetchProductsByCategory = require("./Apis/User/Categories/fetchProductsByCategory.js");
 const fetchProductById = require("./Apis/User/Products/fetchProductsById.js");
+const updateProductsCategory = require("./Apis/User/Categories/updateCategoryId.js");
+const searchProducts = require("./Apis/User/Products/searchProducts.js");
 require("dotenv").config();
 
 const app = express();
@@ -57,6 +59,10 @@ app.get("/products", fetchAllProducts);
 app.get("/categories", fetchAllCategories);
 app.get("/category/:category_id", fetchProductsByCategory);
 app.get("/products/:product_id", fetchProductById);
+
+
+app.post("/searchProducts", searchProducts)
+app.post("/updateProductsCategory", updateProductsCategory)
 
 // Starting the Express server
 app.listen(PORT, () => console.log(`Server started on PORT ${PORT}!`));
