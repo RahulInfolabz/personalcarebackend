@@ -19,7 +19,12 @@ app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://localhost:3001", "http://localhost:5173", "http://localhost:5174"], // Allowed frontend URLs
+    origin: [
+      "http://localhost:3000",
+      "http://localhost:3001",
+      "http://localhost:5173",
+      "http://localhost:5174",
+    ], // Allowed frontend URLs
     credentials: true, // Allow cookies and sessions to be shared across origins
     methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
   })
