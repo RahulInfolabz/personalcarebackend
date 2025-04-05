@@ -23,7 +23,9 @@ async function AddContactInquiry(req, res) {
       timestamp: new Date(),
     });
 
-    return res.status(201).json({ message: "Contact Inquiry Submitted" });
+    return res
+      .status(201)
+      .json({ success: true, message: "Contact Inquiry Submitted" });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: error.message });
