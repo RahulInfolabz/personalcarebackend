@@ -11,7 +11,7 @@ async function AddProductInquiry(req, res) {
     if (
       !productId ||
       !username ||
-      !email ||
+      !email || 
       !phone ||
       !message ||
       !qty ||
