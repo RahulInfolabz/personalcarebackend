@@ -14,6 +14,7 @@ const searchProducts = require("./Apis/User/Products/searchProducts.js");
 const {
   AddProductInquiry,
 } = require("./Apis/User/Products/insertProductInquiry.js");
+const { AddContactInquiry } = require("./Apis/User/Products/storeContact.js");
 require("dotenv").config();
 
 const app = express();
@@ -66,6 +67,7 @@ app.get("/products/:product_id", fetchProductById);
 app.post("/storeProductInquiry", AddProductInquiry);
 app.post("/searchProducts", searchProducts);
 app.post("/updateProductsCategory", updateProductsCategory);
+app.post("/storeContactInquiry", AddContactInquiry);
 
 // Starting the Express server
 app.listen(PORT, () => console.log(`Server started on PORT ${PORT}!`));
