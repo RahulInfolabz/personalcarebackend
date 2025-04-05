@@ -8,6 +8,21 @@ async function AddProductInquiry(req, res) {
     const { productId, username, email, phone, message, qty, budget } =
       req.body;
 
+    if (
+      !productId ||
+      !username ||
+      !email ||
+      !phone ||
+      !message ||
+      !qty ||
+      !budget
+    ) {
+      res.status(404).json({
+        success: false,
+        message: "All Field Are Required",
+      });
+    }
+
     await collection.insertOne({
       productId: productId,
       username,

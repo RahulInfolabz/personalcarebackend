@@ -63,7 +63,7 @@ app.get("/categories", fetchAllCategories);
 app.get("/category/:category_id", fetchProductsByCategory);
 app.get("/products/:product_id", fetchProductById);
 
-app.post("/addProductInquiry", AddProductInquiry);
+app.post("/storeProductInquiry", AddProductInquiry);
 app.post("/searchProducts", searchProducts);
 app.post("/updateProductsCategory", updateProductsCategory);
 
