@@ -5,9 +5,9 @@ async function AddContactInquiry(req, res) {
     const db = await connectDb();
     const collection = db.collection("ContactUs");
 
-    const { username, email, phone, message } = req.body;
+    const { username, email, phone, subject, message } = req.body;
 
-    if (!username || !email || !phone || !message) {
+    if (!username || !email || !subject || !phone || !message) {
       res.status(404).json({
         success: false,
         message: "All Field Are Required",
@@ -18,6 +18,7 @@ async function AddContactInquiry(req, res) {
       username,
       email,
       phone,
+      subject,
       message,
       status: "Pending",
       timestamp: new Date(),
