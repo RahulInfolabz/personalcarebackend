@@ -30,7 +30,8 @@ app.use(
       "http://localhost:3001",
       "http://localhost:5173",
       "http://localhost:5174",
-    ], // Allowed frontend URLs
+      "*.onrender.com"
+    ], 
     credentials: true, // Allow cookies and sessions to be shared across origins
     methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
   })
