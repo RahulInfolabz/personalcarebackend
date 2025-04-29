@@ -21,19 +21,28 @@ const app = express();
 const PORT = process.env.PORT;
 
 app.use(express.json({ limit: "50mb" }));
-app.use(express.urlencoded({ limit: "50mb", extended: true }));
-
-app.use(
+app.use(express.urlencoded({ limit: "50mb", extended: true }));app.use(
   cors({
-    origin: [
-      "http://localhost:3000",
-      "http://localhost:3001",
-      "http://localhost:5173",
-      "http://localhost:5174",
-      ".onrender.com"
-    ], 
-    credentials: true, // Allow cookies and sessions to be shared across origins
-    methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
+    origin: function (origin, callback) {
+      const allowedOrigins = [
+        "http://localhost:3000",
+        "http://localhost:3001",
+        "http://localhost:5173",
+        "http://localhost:5174",
+      ];
+
+      if (
+        !origin || // allow non-browser requests like curl, Postman
+        allowedOrigins.includes(origin) ||
+        /https?:\/\/.*\.?onrender\.com$/.test(origin)
+      ) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
 
