@@ -21,6 +21,7 @@ async function searchProducts(req, res) {
           { product_name: { $regex: query, $options: "i" } },
           { brand_name: { $regex: query, $options: "i" } },
         ],
+        status: "active",
       })
       .toArray();
 

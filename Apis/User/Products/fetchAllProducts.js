@@ -5,7 +5,7 @@ async function fetchAllProducts(req, res) {
     const db = await connectDb();
     const collection = db.collection("products");
 
-    const products = await collection.find().toArray();
+    const products = await collection.find({ status: "active" }).toArray();
 
     if (products.length == 0) {
       return res.status(404).json({ message: "No Data Found" });

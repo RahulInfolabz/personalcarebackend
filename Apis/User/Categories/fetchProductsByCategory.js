@@ -12,6 +12,7 @@ async function fetchProductsByCategory(req, res) {
     const products = await collection
       .find({
         category_id: ObjectId.createFromHexString(category_id),
+        status: "active",
       })
       .toArray();
 

@@ -5,7 +5,7 @@ async function fetchAllCategories(req, res) {
     const database = await connectDb();
     const collection = database.collection("categories");
 
-    const categories = await collection.find().toArray();
+    const categories = await collection.find({ status: "active" }).toArray();
 
     if (categories.length > 0) {
       return res

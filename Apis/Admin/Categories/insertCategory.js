@@ -16,6 +16,7 @@ async function insertCategory(req, res) {
       name,
       image,
       description,
+      status: "active",
     });
 
     if (insert.acknowledged) {
